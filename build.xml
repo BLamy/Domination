@@ -120,7 +120,7 @@
             <classpath refid="Domination.classpath"/>
         </junit>
     </target>
-    <target name="AllTests.suite">
+    <target name="test">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
