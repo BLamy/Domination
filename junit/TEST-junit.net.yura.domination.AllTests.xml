@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="MacBook-Pro.local" name="junit.net.yura.domination.AllTests" skipped="0" tests="4" time="0.163" timestamp="2016-10-17T23:15:25">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="env.XPC_SERVICE_NAME" value="org.eclipse.platform.ide.676832" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="env.SECURITYSESSIONID" value="186a9" />
+    <property name="env.JAVA_MAIN_CLASS_35683" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/classes" />
+    <property name="env.TMPDIR" value="/var/folders/d6/xz9p1rgj0pg3803hv7x36hqc0000gn/T/" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327" />
+    <property name="java.runtime.version" value="1.8.0_51-b16" />
+    <property name="env.Apple_PubSub_Socket_Render" value="/private/tmp/com.apple.launchd.ErFMgqtKsb/Render" />
+    <property name="env.DISPLAY" value="/private/tmp/com.apple.launchd.cPLNJxNXph/org.macosforge.xquartz:0" />
+    <property name="user.name" value="brett" />
+    <property name="env.USER" value="brett" />
+    <property name="env.SHELL" value="/bin/bash" />
+    <property name="env.__CF_USER_TEXT_ENCODING" value="0x1F5:0x0:0x0" />
+    <property name="env.PATH" value="/usr/bin:/bin:/usr/sbin:/sbin" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib" />
+    <property name="ant.project.default-target" value="build" />
+    <property name="env.XPC_FLAGS" value="0x0" />
+    <property name="ant.project.name" value="Domination" />
+    <property name="java.version" value="1.8.0_51" />
+    <property name="user.timezone" value="America/Toronto" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="java.endorsed.dirs" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="52.0" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="env.LOGNAME" value="brett" />
+    <property name="ant.file" value="/Users/brett/Downloads/domination-code-1611/Domination/build.xml" />
+    <property name="os.version" value="10.11.6" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="25.51-b03" />
+    <property name="ant.library.dir" value="/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib" />
+    <property name="junit.output.dir" value="junit" />
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16" />
+    <property name="user.home" value="/Users/brett" />
+    <property name="target" value="1.8" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.file.Domination" value="/Users/brett/Downloads/domination-code-1611/Domination/build.xml" />
+    <property name="java.library.path" value="/Users/brett/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="gopherProxySet" value="false" />
+    <property name="ant.file.type.Domination" value="file" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner junit.net.yura.domination.AllTests skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/brett/Downloads/domination-code-1611/Domination/junit/TEST-junit.net.yura.domination.AllTests.xml crashfile=/Users/brett/Downloads/domination-code-1611/Domination/junitvmwatcher84445870965155336.properties propsfile=/Users/brett/Downloads/domination-code-1611/Domination/junit5193013223621606893.properties" />
+    <property name="java.class.path" value="/Users/brett/Downloads/domination-code-1611/Domination/bin/classes:/Users/brett/.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar:/Users/brett/.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar:/Users/brett/Downloads/domination-code-1611/Domination/assets:/Users/brett/Downloads/domination-code-1611/Domination/BaseGameUtils:/Users/brett/Downloads/domination-code-1611/Domination/game:/Users/brett/Downloads/domination-code-1611/Domination/gradle:/Users/brett/Downloads/domination-code-1611/Domination/installer:/Users/brett/Downloads/domination-code-1611/Domination/lib:/Users/brett/Downloads/domination-code-1611/Domination/libs:/Users/brett/Downloads/domination-code-1611/Domination/nbproject:/Users/brett/Downloads/domination-code-1611/Domination/res:/Users/brett/Downloads/domination-code-1611/Domination/res_swing:/Users/brett/Downloads/domination-code-1611/Domination/sound:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-launcher.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-junit.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-junit4.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.6 compiled on June 29 2015" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="debuglevel" value="source,lines,vars" />
+    <property name="env.HOME" value="/Users/brett" />
+    <property name="env.ANT_HOME" value="/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327" />
+    <property name="java.io.tmpdir" value="/var/folders/d6/xz9p1rgj0pg3803hv7x36hqc0000gn/T/" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="env.SSH_AUTH_SOCK" value="/private/tmp/com.apple.launchd.S53fyNbmjD/Listeners" />
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+    <property name="os.arch" value="x86_64" />
+    <property name="java.ext.dirs" value="/Users/brett/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="user.dir" value="/Users/brett/Downloads/domination-code-1611/Domination" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="env.JAVA_STARTED_ON_FIRST_THREAD_35683" value="1" />
+    <property name="basedir" value="/Users/brett/Downloads/domination-code-1611/Domination" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="ant.core.lib" value="/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant.jar" />
+    <property name="source" value="1.8" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="env.APP_ICON_21092" value="../Resources/Eclipse.icns" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="ant.project.invoked-targets" value="AllTests.suite" />
+    <property name="env.JAVA_STARTED_ON_FIRST_THREAD_21092" value="1" />
+  </properties>
+  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetSafeMapID" time="0.002" />
+  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetExtension" time="0.118" />
+  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetURL" time="0.013" />
+  <testcase classname="junit.net.yura.domination.engine.ai.AISimulationTest" name="testSomething" time="0.0" />
+  <system-out><![CDATA[getSafeMapID
+getExtension
+getURL
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
