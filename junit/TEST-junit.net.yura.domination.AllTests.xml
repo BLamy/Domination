@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="MacBook-Pro.local" name="junit.net.yura.domination.AllTests" skipped="0" tests="4" time="0.163" timestamp="2016-10-17T23:15:25">
+<testsuite errors="0" failures="0" hostname="MacBook-Pro.local" name="junit.net.yura.domination.AllTests" skipped="0" tests="4" time="0.192" timestamp="2016-10-17T23:22:27">
   <properties>
     <property name="java.vendor" value="Oracle Corporation" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="env.XPC_SERVICE_NAME" value="org.eclipse.platform.ide.676832" />
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
     <property name="env.SECURITYSESSIONID" value="186a9" />
-    <property name="env.JAVA_MAIN_CLASS_35683" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner" />
     <property name="os.name" value="Mac OS X" />
     <property name="sun.boot.class.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/classes" />
     <property name="env.TMPDIR" value="/var/folders/d6/xz9p1rgj0pg3803hv7x36hqc0000gn/T/" />
@@ -22,6 +21,7 @@
     <property name="env.PATH" value="/usr/bin:/bin:/usr/sbin:/sbin" />
     <property name="user.language" value="en" />
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_51.jdk/Contents/Home/jre/lib" />
+    <property name="env.JAVA_STARTED_ON_FIRST_THREAD_37503" value="1" />
     <property name="ant.project.default-target" value="build" />
     <property name="env.XPC_FLAGS" value="0x0" />
     <property name="ant.project.name" value="Domination" />
@@ -42,6 +42,7 @@
     <property name="env.LOGNAME" value="brett" />
     <property name="ant.file" value="/Users/brett/Downloads/domination-code-1611/Domination/build.xml" />
     <property name="os.version" value="10.11.6" />
+    <property name="env.JAVA_MAIN_CLASS_37503" value="org.eclipse.ant.internal.launching.remote.InternalAntRunner" />
     <property name="path.separator" value=":" />
     <property name="java.vm.version" value="25.51-b03" />
     <property name="ant.library.dir" value="/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib" />
@@ -61,8 +62,8 @@
     <property name="gopherProxySet" value="false" />
     <property name="ant.file.type.Domination" value="file" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner junit.net.yura.domination.AllTests skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/brett/Downloads/domination-code-1611/Domination/junit/TEST-junit.net.yura.domination.AllTests.xml crashfile=/Users/brett/Downloads/domination-code-1611/Domination/junitvmwatcher84445870965155336.properties propsfile=/Users/brett/Downloads/domination-code-1611/Domination/junit5193013223621606893.properties" />
-    <property name="java.class.path" value="/Users/brett/Downloads/domination-code-1611/Domination/bin/classes:/Users/brett/.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar:/Users/brett/.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar:/Users/brett/Downloads/domination-code-1611/Domination/assets:/Users/brett/Downloads/domination-code-1611/Domination/BaseGameUtils:/Users/brett/Downloads/domination-code-1611/Domination/game:/Users/brett/Downloads/domination-code-1611/Domination/gradle:/Users/brett/Downloads/domination-code-1611/Domination/installer:/Users/brett/Downloads/domination-code-1611/Domination/lib:/Users/brett/Downloads/domination-code-1611/Domination/libs:/Users/brett/Downloads/domination-code-1611/Domination/nbproject:/Users/brett/Downloads/domination-code-1611/Domination/res:/Users/brett/Downloads/domination-code-1611/Domination/res_swing:/Users/brett/Downloads/domination-code-1611/Domination/sound:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-launcher.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-junit.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-junit4.jar" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner junit.net.yura.domination.AllTests skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.OutErrSummaryJUnitResultFormatter showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/brett/Downloads/domination-code-1611/Domination/junit/TEST-junit.net.yura.domination.AllTests.xml crashfile=/Users/brett/Downloads/domination-code-1611/Domination/junitvmwatcher6291648761846972147.properties propsfile=/Users/brett/Downloads/domination-code-1611/Domination/junit4667558715725900673.properties" />
+    <property name="java.class.path" value="/Users/brett/Downloads/domination-code-1611/Domination/bin/classes:/Users/brett/.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar:/Users/brett/.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar:/Users/brett/Downloads/domination-code-1611/Domination/assets:/Users/brett/Downloads/domination-code-1611/Domination/BaseGameUtils:/Users/brett/Downloads/domination-code-1611/Domination/game:/Users/brett/Downloads/domination-code-1611/Domination/installer:/Users/brett/Downloads/domination-code-1611/Domination/lib:/Users/brett/Downloads/domination-code-1611/Domination/libs:/Users/brett/Downloads/domination-code-1611/Domination/nbproject:/Users/brett/Downloads/domination-code-1611/Domination/res:/Users/brett/Downloads/domination-code-1611/Domination/res_swing:/Users/brett/Downloads/domination-code-1611/Domination/sound:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-launcher.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-junit.jar:/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant-junit4.jar" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.6 compiled on June 29 2015" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
     <property name="java.vm.specification.version" value="1.8" />
@@ -80,7 +81,6 @@
     <property name="user.dir" value="/Users/brett/Downloads/domination-code-1611/Domination" />
     <property name="line.separator" value="&#xa;" />
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
-    <property name="env.JAVA_STARTED_ON_FIRST_THREAD_35683" value="1" />
     <property name="basedir" value="/Users/brett/Downloads/domination-code-1611/Domination" />
     <property name="ant.java.version" value="1.8" />
     <property name="ant.core.lib" value="/Users/brett/.p2/pool/plugins/org.apache.ant_1.9.6.v201510161327/lib/ant.jar" />
@@ -91,9 +91,9 @@
     <property name="ant.project.invoked-targets" value="AllTests.suite" />
     <property name="env.JAVA_STARTED_ON_FIRST_THREAD_21092" value="1" />
   </properties>
-  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetSafeMapID" time="0.002" />
-  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetExtension" time="0.118" />
-  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetURL" time="0.013" />
+  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetSafeMapID" time="0.001" />
+  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetExtension" time="0.143" />
+  <testcase classname="junit.net.yura.domination.engine.RiskUIUtilTest" name="testGetURL" time="0.014" />
   <testcase classname="junit.net.yura.domination.engine.ai.AISimulationTest" name="testSomething" time="0.0" />
   <system-out><![CDATA[getSafeMapID
 getExtension
