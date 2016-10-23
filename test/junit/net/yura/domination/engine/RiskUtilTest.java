@@ -45,18 +45,18 @@ public class RiskUtilTest extends TestCase {
         assert(true);
     }
 
-    /**
-     * Test of openMapStream method, of class RiskUtil.
-     */
-    public void testOpenMapStream() throws Exception {
-        System.out.println("openMapStream");
-        String a = "";
-        InputStream expResult = null;
-        InputStream result = RiskUtil.openMapStream(a);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+//    /**
+//     * Test of openMapStream method, of class RiskUtil.
+//     */
+//    public void testOpenMapStream() throws Exception {
+//        System.out.println("openMapStream");
+//        String a = "";
+//        InputStream expResult = null;
+//        InputStream result = RiskUtil.openMapStream(a);
+//        assertEquals(expResult, result);
+//        // TODO review the generated test code and remove the default call to fail.
+//        fail("The test case is a prototype.");
+//    }
 //
 //    /**
 //     * Test of openStream method, of class RiskUtil.
