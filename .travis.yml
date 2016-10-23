@@ -1,2 +1,4 @@
 language: java
-    ant test
+
+before_script:
+  - ant jar
