@@ -1,4 +1,4 @@
-package junit.net.yura.domination.engine;
+package net.yura.domination.engine;
 
 import java.io.File;
 import junit.framework.TestCase;

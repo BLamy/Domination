@@ -1,4 +1,4 @@
-package junit.net.yura.domination.engine.ai;
+package net.yura.domination.engine.ai;
 
 import junit.framework.TestCase;
 import net.yura.domination.engine.Risk;

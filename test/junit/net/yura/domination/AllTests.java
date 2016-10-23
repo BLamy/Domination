@@ -1,9 +1,9 @@
-package junit.net.yura.domination;
+package net.yura.domination;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import junit.net.yura.domination.engine.RiskUIUtilTest;
-import junit.net.yura.domination.engine.ai.AISimulationTest;
+import net.yura.domination.engine.RiskUIUtilTest;
+import net.yura.domination.engine.ai.AISimulationTest;
 
 public class AllTests {
 
