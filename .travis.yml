@@ -2,3 +2,6 @@ language: java
 
 before_script:
   - ant jar
+  
+after_success:
+  - coveralls
