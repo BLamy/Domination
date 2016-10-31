@@ -4,4 +4,4 @@ before_script:
   - ant jar
   
 after_success:
-  - coveralls
+  - bash <(curl -s https://codecov.io/bash)
