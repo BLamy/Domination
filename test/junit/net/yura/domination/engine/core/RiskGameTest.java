@@ -1,6 +1,7 @@
 package net.yura.domination.engine.core;
 
 import java.io.File;
+import java.util.Vector;
 import junit.framework.TestCase;
 import net.yura.domination.engine.RiskUIUtil;
 import net.yura.domination.engine.core.Card;
@@ -23,6 +24,183 @@ public class RiskGameTest extends TestCase {
         super.tearDown();
     }
 
+    //------------------------
+    // Command Crud
+    //------------------------
+    public void testCommandCRUD() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        Vector testVector = new Vector();
+        assertEquals(instance.getCommands(), testVector);
+        instance.addCommand("foo");
+        testVector.add("foo");
+        assertEquals(instance.getCommands(), testVector);
+        instance.setCommands(new Vector());
+        assertEquals(instance.getCommands(), new Vector());
+    }
+    
+    //------------------------
+    // Add Player
+    //------------------------
+    public void testCanAddPlayer() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertEquals(instance.getPlayers().size(), 1);
+    }
+        
+    public void testCanAddMultiplePlayers() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
+        assertEquals(instance.getPlayers().size(), 2);
+    }
+    
+    public void testCantAddPlayerAfterGameStarts() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        instance.startGame(0, 0, true, true);
+        assertFalse(instance.addPlayer(0, "bar", 1, "localhost"));
+        assertEquals(instance.getPlayers().size(), 0);
+    }
+    
+    public void testCantAddPlayersOfSameName() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertFalse(instance.addPlayer(0, "foo", 1, "localhost"));
+        assertEquals(instance.getPlayers().size(), 1);
+    }
+    
+    public void testCantAddPlayersOfSameColor() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 1, "localhost"));
+        assertFalse(instance.addPlayer(0, "bar", 1, "localhost"));
+        assertEquals(instance.getPlayers().size(), 1);
+    }
+    
+    //------------------------
+    // Delete Player
+    //------------------------
+    public void testCanDeletePlayer() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertEquals(instance.getPlayers().size(), 1);
+        assertTrue(instance.delPlayer("foo"));
+        assertEquals(instance.getPlayers().size(), 0);
+    }
+    
+    public void testShouldReturnFalseIfPlayerNotFound() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertFalse(instance.delPlayer("bar"));
+        assertEquals(instance.getPlayers().size(), 1);
+    }
+    
+    public void testCantDeletePlayerAfterGameStarts() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertEquals(instance.getPlayers().size(), 1);
+        instance.startGame(0, 0, true, true);
+        assertFalse(instance.delPlayer("foo"));
+        assertEquals(instance.getPlayers().size(), 1);
+    }
+    
+    //------------------------
+    // Start Game
+    //------------------------
+    public void testShouldDoNothingIfGameAlreadyStarted() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        instance.startGame(0, 0, true, true);
+        instance.startGame(0, 0, true, true);
+    }
+    
+    public void testNoMap() throws Exception {
+        RiskGame instance = new RiskGame();
+        instance.startGame(0, 0, false, false);
+    }
+    
+    //------------------------
+    // Start Game
+    //------------------------
+    public void testTestMap() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        instance.startGame(0, 0, true, true);
+        instance.testMap();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+    //------------------------
+    // HSBtoRGB
+    //------------------------
+    public void testHSBtoRGB() {
+        int rgb = RiskGame.HSBtoRGB(30f, .96f, .52f);
+        int blue = rgb & 0xFF;
+        int green = (rgb >> 8) & 0xFF;
+        int red = (rgb >> 16) & 0xFF;
+        System.out.println("#" + red + green + blue);
+    }
+    
+    //------------------------
+    // getPlayer
+    //------------------------
+    public void testGetPlayer() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertEquals(instance.getPlayer("foo").getName(), "foo");
+    }
+    
+    public void testGetPlayerReturnsNullOnNotFound() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertEquals(instance.getPlayer("bar"), null);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Test of trade method, of class RiskGame.
      */
