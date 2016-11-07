@@ -6,6 +6,7 @@ import junit.framework.TestCase;
 import net.yura.domination.engine.RiskUIUtil;
 import net.yura.domination.engine.core.Card;
 import net.yura.domination.engine.core.RiskGame;
+import org.junit.Test;
 
 /**
  * @author Yur Mamyrin
@@ -54,7 +55,7 @@ public class RiskGameTest extends TestCase {
         RiskGame instance = new RiskGame();
         assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
         assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
-        assertEquals(instance.getPlayers().size(), 2);
+        assertEquals(instance.getNoPlayers(), 2);
     }
     
     public void testCantAddPlayerAfterGameStarts() throws Exception {
@@ -127,7 +128,7 @@ public class RiskGameTest extends TestCase {
     }
     
     //------------------------
-    // Start Game
+    // TestMap
     //------------------------
     public void testTestMap() throws Exception {
         RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
@@ -137,22 +138,99 @@ public class RiskGameTest extends TestCase {
     }
     
     
+ 
+    //------------------------
+    // getDeservedCard
+    //------------------------
+    public void testPlayerShouldGetCard() throws Exception {
+        RiskGame instance = new RiskGame();
+        System.out.println(instance.getDesrvedCard());
+    }
+    
+    //------------------------
+    // getRandomCountry
+    //------------------------
+    public void testShouldThrowIfNotPlacingArmies() throws Exception {
+        RiskGame instance = new RiskGame();
+        try {
+            instance.getRandomCountry();
+            assert false;
+        } catch (IllegalStateException e) {
+            assert true;
+        }
+    }
+    
+    public void testGetRandomCountry() throws Exception {
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
+        instance.startGame(0, 0, true, true);
+        int countryId = instance.getRandomCountry();
+        assertNotNull(instance.getCountryInt(countryId));
+    }
+    
+    //------------------------
+    // PlaceArmy
+    //------------------------
+    public void testPlaceArmy() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
+        instance.startGame(0, 0, true, true);
+        Country country = instance.getCountries()[0];
+        System.out.println("foobar" + instance.getState());
+        assertTrue(instance.placeArmy(country, 1) == 1);
+    }
+    
+    //------------------------
+    // Battle
+    //------------------------
+    public void testBattle() throws Exception { 
+        RiskGame instance = new RiskGame();
+        instance.startGame(0, 0, true, true);
+        int[] attackers = new int[]{0, 0, 0, 0, 0, 0};
+        int[] defenders = new int[]{0, 0, 0, 0, 0, 0};
+        instance.battle(attackers, defenders);
+        
+        
+    }
+   
+    
+        
+    //------------------------
+    // getCountryInt
+    //------------------------
+    public void testGetNullForUnknownCountryInt() throws Exception {
+        RiskGame instance = new RiskGame();
+        instance.startGame(0, 0, true, true);
+        assertNull(instance.getCountryInt(-1));
+        assertNull(instance.getCountryInt(Integer.MAX_VALUE));
+    }
     
     
     
+    //------------------------
+    // rollDice
+    //------------------------
+    public void testRollDice() throws Exception {
+        RiskGame instance = new RiskGame();
+        assertEquals(instance.rollDice(1).length, 1);
+    }
+    
+    public void testDiceShouldBeInOrder() throws Exception {
+        RiskGame instance = new RiskGame();  
+        int[] dice = instance.rollDice(3);
+        assertTrue(dice[0] < dice[1]);
+        assertTrue(dice[1] < dice[2]);
+    }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    public void testGetNumber() {
+        assertEquals(RiskGame.getNumber("1"), 1);
+        assertEquals(RiskGame.getNumber("-1"), -1);
+        assertEquals(RiskGame.getNumber("asff"), -1);
+    }
     
     
     
@@ -191,8 +269,7 @@ public class RiskGameTest extends TestCase {
         assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
         assertEquals(instance.getPlayer("bar"), null);
     }
-    
-    
+
     
     
     
