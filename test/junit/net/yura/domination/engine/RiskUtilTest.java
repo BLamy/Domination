@@ -137,20 +137,9 @@ public class RiskUtilTest extends TestCase {
 //     * Test of createGameString method, of class RiskUtil.
 //     */
 //    public void testCreateGameString() {
-//        System.out.println("createGameString");
-//        int easyAI = 0;
-//        int averageAI = 0;
-//        int hardAI = 0;
-//        int gameMode = 0;
-//        int cardsMode = 0;
-//        boolean AutoPlaceAll = false;
-//        boolean recycle = false;
-//        String mapFile = "";
-//        String expResult = "";
-//        String result = RiskUtil.createGameString(easyAI, averageAI, hardAI, gameMode, cardsMode, AutoPlaceAll, recycle, mapFile);
+//        String expResult = "0\n0\n0\nchoosemap\nstartgame domination increasing";
+//        String result = RiskUtil.createGameString(0, 0, 0, 0, 0, false, false, "");
 //        assertEquals(expResult, result);
-//        // TODO review the generated test code and remove the default call to fail.
-//        fail("The test case is a prototype.");
 //    }
 //
 //    /**

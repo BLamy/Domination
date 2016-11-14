@@ -1571,7 +1571,6 @@ public class RiskGame implements Serializable { // transient
     }
 
     public boolean canContinue() {
-
         if (gameState == STATE_GAME_OVER && gameMode != MODE_DOMINATION && gameMode != 1) {
 
             int oldGameMode = gameMode;
@@ -2962,6 +2961,10 @@ public class RiskGame implements Serializable { // transient
             }
         }
         return null;
+    }
+    
+    public void setGameState(int state) {
+        gameState = state;
     }
 
 }
