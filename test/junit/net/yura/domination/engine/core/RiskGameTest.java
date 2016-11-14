@@ -154,6 +154,19 @@ public class RiskGameTest extends TestCase {
         instance.testMap();
     }
     
+    //------------------------
+    // getNoContinentsOwned
+    //------------------------
+    public void testGetNoContinentsOwned() throws Exception {
+        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        Player player = instance.setCurrentPlayer(0);
+
+        instance.startGame(0, 0, true, true);
+        instance.testMap();
+    }
+    
     
  
     //------------------------
