@@ -18,14 +18,14 @@ public class CacheTest extends TestCase {
         assert(true);
     }
     
-    public void testCacheConstructor() {
-        Cache test1Cache = new Cache("test");
-        Cache test2Cache = new Cache("test");
-        Cache test3Cache = new Cache("test");
-        String cacheFile = System.getProperty("java.io.tmpdir");
-        cacheFile = cacheFile.concat("test.cache");
-        File varTmpDir = new File(cacheFile);
-        boolean exists = varTmpDir.exists();
-        assertEquals(true, exists);
-    }
+//    public void testCacheConstructor() {
+//        Cache test1Cache = new Cache("test");
+//        Cache test2Cache = new Cache("test");
+//        Cache test3Cache = new Cache("test");
+//        String cacheFile = System.getProperty("java.io.tmpdir");
+//        cacheFile = cacheFile.concat("test.cache");
+//        File varTmpDir = new File(cacheFile);
+//        boolean exists = varTmpDir.exists();
+//        assertEquals(true, exists);
+//    }
 }

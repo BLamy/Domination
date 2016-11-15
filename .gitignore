@@ -4,3 +4,4 @@ dist
 .jacoverage
 .metadata
 jacoco.exec-*
+.jacocoverage

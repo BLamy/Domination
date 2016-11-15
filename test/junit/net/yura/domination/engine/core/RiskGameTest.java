@@ -6,7 +6,10 @@ import junit.framework.TestCase;
 import net.yura.domination.engine.RiskUIUtil;
 import net.yura.domination.engine.core.Card;
 import net.yura.domination.engine.core.RiskGame;
+import static net.yura.domination.engine.core.RiskGame.STATE_ATTACKING;
 import static net.yura.domination.engine.core.RiskGame.STATE_GAME_OVER;
+import static net.yura.domination.engine.core.RiskGame.STATE_PLACE_ARMIES;
+import static net.yura.domination.engine.core.RiskGame.STATE_ROLLING;
 import org.junit.Test;
 import org.mockito.Mockito;
 
@@ -139,6 +142,7 @@ public class RiskGameTest extends TestCase {
         assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
         Player player = instance.setCurrentPlayer(0);
         assertEquals(player.getName(), "foo");
+        assertEquals(player, instance.getCurrentPlayer());
     }
 
 
@@ -211,35 +215,35 @@ public class RiskGameTest extends TestCase {
     //------------------------
     // PlaceArmy
     //------------------------
-    public void testPlaceArmy() throws Exception {
-        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
-        RiskGame instance = new RiskGame();
-        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
-        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
-        Country country = instance.getCountryInt(instance.getRandomCountry());
-//        assertTrue(instance.placeArmy(country, 1) == 1);
-        instance.startGame(0, 0, true, true);
-
-//        assertTrue(instance.placeArmy(country, 1) == 1);
-    }
+//    public void testPlaceArmy() throws Exception {
+//        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+//        RiskGame instance = new RiskGame();
+//        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+//        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
+//        Country country = instance.getCountryInt(instance.getRandomCountry());
+////        assertTrue(instance.placeArmy(country, 1) == 1);
+//        instance.startGame(0, 0, true, true);
+//
+////        assertTrue(instance.placeArmy(country, 1) == 1);
+//    }
     
         
     //------------------------
     // EndGO
     //------------------------
-    public void testEndGo() throws Exception {
-        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
-        RiskGame instance = new RiskGame();
-        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
-        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
-        instance.setGameState(instance.STATE_END_TURN);
-        Player player = instance.endGo();
-//        Country country = instance.getCountryInt(instance.getRandomCountry());
-//        assertTrue(instance.placeArmy(country, 1) == 1);
-//        instance.startGame(0, 0, true, true);
-
-//        assertTrue(instance.placeArmy(country, 1) == 1);
-    }
+//    public void testEndGo() throws Exception {
+//        RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+//        RiskGame instance = new RiskGame();
+//        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+//        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
+//        instance.setGameState(instance.STATE_END_TURN);
+//        Player player = instance.endGo();
+////        Country country = instance.getCountryInt(instance.getRandomCountry());
+////        assertTrue(instance.placeArmy(country, 1) == 1);
+////        instance.startGame(0, 0, true, true);
+//
+////        assertTrue(instance.placeArmy(country, 1) == 1);
+//    }
     
     //------------------------
     // Attack
@@ -249,26 +253,38 @@ public class RiskGameTest extends TestCase {
         assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
         assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
         instance.startGame(0, 0, true, true);
-        instance.setGameState(instance.STATE_DEFEND_YOURSELF);
+        instance.setGameState(instance.STATE_ATTACKING);
         
     }
     
+    public void testWorkOutEndGoStats() throws Exception {
+        RiskGame instance = new RiskGame();
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        Player player = instance.setCurrentPlayer(0);
+        instance.startGame(instance.MODE_CAPITAL, 0, true, true);
+        instance.workOutEndGoStats(player);
+        assertEquals(player.currentStatistic.get(StatType.KILLS), 0);
+        player.currentStatistic.addKill();
+        assertEquals(player.currentStatistic.get(StatType.KILLS), 1);
+    }
     //------------------------
     // Battle
     //------------------------
-    public void testBattle() throws Exception { 
-        RiskGame instance = new RiskGame();
-        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
-        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
-        instance.startGame(0, 0, true, true);
-        
-        
-        instance.setGameState(instance.STATE_DEFEND_YOURSELF);
-        int[] attackers = new int[]{0, 1, 2, 3, 4, 5};
-        int[] defenders = new int[]{0, 1, 2, 3, 4, 5};
-        instance.battle(attackers, defenders);
-
-    }
+//    public void testBattle() throws Exception { 
+//        RiskGame instance = new RiskGame();
+//        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+//        assertTrue(instance.addPlayer(0, "bar", 1, "localhost"));
+//        instance.startGame(0, 0, true, true);
+//        
+//           Player player = instance.setCurrentPlayer(0);
+//        instance.workOutEndGoStats(player); 
+//        
+//        instance.setGameState(instance.STATE_DEFEND_YOURSELF);
+//        int[] attackers = new int[]{0, 1, 2, 3, 4, 5};
+//        int[] defenders = new int[]{0, 1, 2, 3, 4, 5};
+//        instance.battle(attackers, defenders);
+//
+//    }
    
     
         
@@ -362,18 +378,69 @@ public class RiskGameTest extends TestCase {
     //------------------------
     public void testCanContinue() throws Exception {
         RiskGame instance = Mockito.spy(new RiskGame());
-        Mockito.when(instance.checkPlayerWon()).thenReturn(true);
+        Mockito.doReturn(false).when(instance).checkPlayerWon();
         instance.startGame(instance.MODE_CAPITAL, 0, true, true);
         instance.setGameState(instance.STATE_GAME_OVER);
         assertTrue("CanContinue", instance.canContinue());
     }
     
     public void testCanNotContinue() throws Exception {
-        RiskGame instance = Mockito.spy(new RiskGame());
+        RiskGame instance = new RiskGame();
         assertFalse("CanNotContinue", instance.canContinue());
         instance.startGame(instance.MODE_CAPITAL, 0, true, true);
         instance.setGameState(instance.STATE_GAME_OVER);
         assertFalse("CanNotContinue", instance.canContinue());
+    }
+    
+    //------------------------
+    // endTrade
+    //------------------------
+    public void testEndTrade() throws Exception {
+        RiskGame instance = Mockito.spy(new RiskGame());
+        Mockito.doReturn(true).when(instance).canEndTrade();
+        assertEquals(instance.endTrade(), true);
+        assertEquals("Should Transition to STATE_PLACE_ARMIES", instance.getState(), instance.STATE_PLACE_ARMIES );
+    }
+    
+    public void testCantTradeAfterTradeCap() throws Exception {
+        RiskGame instance = Mockito.spy(new RiskGame());
+        Mockito.doReturn(true).when(instance).canEndTrade();
+        instance.startGame(instance.MODE_CAPITAL, 0, true, true);
+        try {
+            instance.endTrade();
+            assert false;
+        } catch (IllegalStateException e) {
+            assert true;
+        }
+    }
+            
+//    public void testRollA() throws Exception {
+//        RiskGame instance = Mockito.spy(new RiskGame());
+//        instance.setGameState(instance.STATE_ROLLING);
+//        instance.rollA(6);
+//    }
+//    public void testEndTrade() throws Exception {
+//        RiskGame instance = Mockito.spy(new RiskGame());
+//        Mockito.doReturn(true).when(instance).canEndTrade();
+//        assertEquals(instance.endTrade(), 1);
+//        assertEquals("Should Transition to STATE_PLACE_ARMIES", instance.getState(), instance.STATE_PLACE_ARMIES );
+//    }
+        
+
+    
+    //------------------------
+    // setupNewMap
+    //------------------------
+    public void testSetupNewMap() throws Exception {
+        RiskGame instance = Mockito.spy(new RiskGame());
+        instance.setupNewMap();
+        assertEquals(instance.getCountries().length, 0);
+        assertEquals(instance.getContinents().length, 0);
+        assertEquals(instance.getCards().size(), 0);
+        assertEquals(instance.getUsedCards().size(), 0);
+        assertEquals(instance.getMissions().size(), 0);
+        assertEquals(instance.getProperties().size(), 0);
+        assertEquals(instance.NoEmptyCountries(), 0);
     }
     
     //------------------------
@@ -383,15 +450,15 @@ public class RiskGameTest extends TestCase {
         RiskGame instance = Mockito.spy(new RiskGame());
         assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
         instance.setCurrentPlayer(0);
-        Mockito.when(instance.canContinue()).thenReturn(true);
+        Mockito.doReturn(true).when(instance).canContinue();
         assertTrue("continuePlay", instance.continuePlay());
         assertEquals("", instance.getState(), instance.STATE_ATTACKING);
     }
     
-    public void testCantContinuePlay() throws Exception {
-        RiskGame instance = new RiskGame();
-        assertTrue("cant continuePlay", instance.continuePlay());
-    }
+//    public void testCantContinuePlay() throws Exception {
+//        RiskGame instance = new RiskGame();
+//        assertTrue("cant continuePlay", instance.continuePlay());
+//    }
     
     //------------------------
     // getClosestCountry
@@ -729,10 +796,28 @@ public class RiskGameTest extends TestCase {
         assertEquals(two_wildcards, instance.getTradeAbsValue(Card.CANNON, Card.WILDCARD, Card.WILDCARD, RiskGame.CARD_ITALIANLIKE_SET) );
         assertEquals(two_wildcards, instance.getTradeAbsValue(Card.INFANTRY, Card.WILDCARD, Card.WILDCARD, RiskGame.CARD_ITALIANLIKE_SET) );
         assertEquals(two_wildcards, instance.getTradeAbsValue(Card.CAVALRY, Card.WILDCARD, Card.WILDCARD, RiskGame.CARD_ITALIANLIKE_SET) );
-        
-        
-        
-        
     }
-
+    
+    public void testDefaults() throws Exception {
+        RiskGame instance = Mockito.spy(new RiskGame());
+        assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+        Player player = instance.setCurrentPlayer(0);
+        instance.startGame(instance.MODE_CAPITAL, 0, true, true);
+        assertEquals(instance.getMaxDefendDice(), 3);
+        assertEquals(instance.isCapturedCountry(), false);
+        assertEquals(instance.canTrade(), false);
+        assertEquals(instance.getAttackerDice(), 0);
+        assertEquals(instance.getDefenderDice(), 0);
+        assertEquals(instance.getBattleRounds(), 0);
+        assertEquals(instance.getImageMap(), "luca_map.gif");
+        assertEquals(instance.getCardsFile(), "risk.cards");
+        assertEquals(instance.getMapFile(), "luca.map");
+        assertEquals(instance.getNoCountries(), 42);
+        assertEquals(instance.getNoContinents(), 6);
+        assertEquals(instance.getNoMissions(), 9);
+        assertEquals(instance.getNoCards(), 44);
+        assertEquals(instance.isRecycleCards(), true);
+        assertEquals(instance.getDefaultMap(), "luca.map");
+        assertEquals(instance.getDefaultCards(), "risk.cards");
+    }
 }
