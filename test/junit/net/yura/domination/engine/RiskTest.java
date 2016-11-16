@@ -41,6 +41,10 @@ public class RiskTest extends TestCase {
         game.setGame(instance);
         
         assertNotNull(game.getGame());
+        
+        game.setGame(instance);
+        
+        assertSame(instance, game.getGame());
     }
     
     public void testGetGame() throws Exception {
@@ -64,10 +68,24 @@ public class RiskTest extends TestCase {
         game.setGame(instance);
         Player temp = game.findEmptySpot();
         
-        
         assertNull(temp);
+        
+    
     }
     
-   
+   public void testSettMyAdress() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       game.setAddress("newAddress");
+       assert(true);
+   }
     
+   public void testGetMyAddress() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       game.setAddress("newAddress");
+       assertEquals(game.getMyAddress(), "newAddress");
+   }
+   
+   
 }
