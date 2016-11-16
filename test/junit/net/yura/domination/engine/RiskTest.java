@@ -41,6 +41,10 @@ public class RiskTest extends TestCase {
         game.setGame(instance);
         
         assertNotNull(game.getGame());
+        
+        game.setGame(instance);
+        
+        assertSame(instance, game.getGame());
     }
     
     public void testGetGame() throws Exception {
@@ -64,10 +68,56 @@ public class RiskTest extends TestCase {
         game.setGame(instance);
         Player temp = game.findEmptySpot();
         
-        
         assertNull(temp);
+        
+    
     }
     
-   
+   public void testSettMyAdress() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       game.setAddress("newAddress");
+       assert(true);
+   }
     
+   public void testGetMyAddress() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       game.setAddress("newAddress");
+       assertEquals(game.getMyAddress(), "newAddress");
+   }
+   
+   public void testGetCurrentMission() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       RiskGame instance = new RiskGame();
+              
+       assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+       instance.startGame(instance.MODE_CAPITAL, 0, true, true);
+       game.setGame(instance);
+       System.out.println(game.getCurrentMission());
+       assertEquals(game.getCurrentMission(), "Capture all opposing Headquarters-while still controlling your own territory.");
+       
+       
+       RiskGame instance2 = new RiskGame();
+       assertTrue(instance2.addPlayer(0, "foo", 0, "localhost"));
+       instance.startGame(instance.MODE_DOMINATION, 0, true, true);
+       game.setGame(instance2);
+       assertEquals(game.getCurrentMission(), "Conquer the world by occupying every territory on the board, thus eliminating all your opponents.");
+   }
+   
+   public void testGetPlayerColors() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       RiskGame instance = new RiskGame();
+      
+       assertNotNull(game.getPlayerColors());
+       
+       assertTrue(instance.addPlayer(0, "foo", 1, "localhost"));
+       instance.startGame(instance.MODE_CAPITAL, 0, true, true);
+       game.setGame(instance);
+       
+       assertNotNull(game.getPlayerColors());
+       
+   }
 }
