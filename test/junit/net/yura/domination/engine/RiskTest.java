@@ -193,7 +193,14 @@ public class RiskTest extends TestCase {
        
        assertFalse(game.canTrade(null, null, null));
        
+   }
+   
+   public void testKill() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       RiskGame instance = new RiskGame();
+       game.setGame(instance);
        
-       
+       game.kill();
    }
 }
