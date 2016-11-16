@@ -101,7 +101,7 @@ public class RiskTest extends TestCase {
        
        RiskGame instance2 = new RiskGame();
        assertTrue(instance2.addPlayer(0, "foo", 0, "localhost"));
-       instance.startGame(instance.MODE_DOMINATION, 0, true, true);
+       instance2.startGame(instance2.MODE_DOMINATION, 0, true, true);
        game.setGame(instance2);
        assertEquals(game.getCurrentMission(), "Conquer the world by occupying every territory on the board, thus eliminating all your opponents.");
    }
@@ -118,6 +118,82 @@ public class RiskTest extends TestCase {
        game.setGame(instance);
        
        assertNotNull(game.getPlayerColors());
+       
+   }
+   
+   
+   public void testGetCountryName() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       RiskGame instance = new RiskGame();
+       assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+       instance.startGame(instance.MODE_DOMINATION, 0, true, true);
+       game.setGame(instance);
+       game.getCountryName(game.getGame().getRandomCountry());
+       
+   }
+   
+   public void testGetAutoEndGo() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       
+       assertFalse(game.getAutoEndGo());
+       
+       RiskGame instance = new RiskGame();
+       instance.startGame(instance.MODE_DOMINATION, 0, true, true);
+       game.setGame(instance);
+       
+       assertNotNull(game.getAutoEndGo());
+       
+       RiskGame instance2 = new RiskGame();
+       assertTrue(instance2.addPlayer(0, "foo", 0, "localhost"));
+       instance2.startGame(instance2.MODE_DOMINATION, 0, true, true);
+       game.setGame(instance2);
+       
+       assertNotNull(game.getAutoEndGo());
+
+   }
+   
+   
+   public void testShowMessageDialog() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       RiskGame instance = new RiskGame();
+       assertTrue(instance.addPlayer(0, "foo", 0, "localhost"));
+       instance.startGame(instance.MODE_DOMINATION, 0, true, true);
+       game.setGame(instance);
+       
+       game.showMessageDialog("a");
+   }
+   
+   public void testGetAutoDefend() throws Exception {
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       
+       assertFalse(game.getAutoDefend());
+       
+       RiskGame instance = new RiskGame();
+       instance.startGame(instance.MODE_DOMINATION, 0, true, true);
+       game.setGame(instance);
+       
+       assertNotNull(game.getAutoDefend());
+   }
+   
+   public void testGetLocalGame() throws Exception{
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       assertNotNull(game.getLocalGame());
+   }
+       
+   public void testCanTrade() throws Exception{
+       RiskUIUtil.mapsdir = new File("./game/Domination/maps").toURI().toURL();
+       Risk game = new Risk();
+       RiskGame instance = new RiskGame();
+       game.setGame(instance);
+       
+       assertFalse(game.canTrade(null, null, null));
+       
+       
        
    }
 }
