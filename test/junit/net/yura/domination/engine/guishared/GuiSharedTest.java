@@ -10,6 +10,8 @@ import net.yura.domination.engine.guishared.PicturePanel;
 import net.yura.domination.engine.Risk;
 import net.yura.domination.engine.core.RiskGame;
 import junit.framework.TestCase;
+import net.yura.domination.engine.RiskUtil;
+import net.yura.domination.mobile.RiskMiniIO;
 import org.junit.Test;
 
 /**
@@ -26,10 +28,24 @@ public class GuiSharedTest extends TestCase {
         assert(true);
     }
     
-//    public void testConstructor() throws Exception {
-//        Risk myrisk = new Risk();
-//        PicturePanel pp = new PicturePanel(myrisk);
-//        MapMouseListener mml = new MapMouseListener(myrisk, pp);
-//    }
-//    
+    public void testConstructor() throws Exception {
+        RiskUtil.streamOpener = new RiskMiniIO();
+
+        Risk myrisk = new Risk();
+//        myrisk.start();
+        PicturePanel pp = new PicturePanel(myrisk);
+        MapMouseListener mml = new MapMouseListener(myrisk, pp);
+        mml.mouseMoved(1, 1, 1);
+    }
+    
+        
+    public void testFoobar() throws Exception {
+        RiskUtil.streamOpener = new RiskMiniIO();
+
+        Risk myrisk = new Risk();
+//        myrisk.start();
+        PicturePanel pp = new PicturePanel(myrisk);
+        MapMouseListener mml = new MapMouseListener(myrisk, pp);
+        mml.mouseReleased(1, 1, 1);
+    }
 }
