@@ -37,8 +37,7 @@ public class CacheTest extends TestCase {
         String cacheFile = System.getProperty("java.io.tmpdir");
         cacheFile = cacheFile.concat("test.cache");
         File varTmpDir = new File(cacheFile);
-        boolean exists = varTmpDir.exists();
-        assertEquals(true, exists);
+        assertFalse(varTmpDir.exists());
         varTmpDir.delete();
     }
     
